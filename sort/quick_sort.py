@@ -21,6 +21,5 @@ def quick(numbers):
             inner_quick(numbers, partition_index + 1, high)
             
     inner_quick(numbers, 0, len(numbers) - 1)
-    print(numbers)
     
 quick(li_quick)
