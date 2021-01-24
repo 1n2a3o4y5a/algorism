@@ -3,7 +3,7 @@
 li_buble = [2, 5, 1, 8, 7, 3]
 
 
-def buble(numbers: li):
+def buble(numbers):
     len_numbers = len(numbers)
     
     for i in range(len_numbers):
