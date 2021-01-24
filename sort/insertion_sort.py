@@ -2,7 +2,7 @@
 
 
 li_insertion = [2, 5, 1, 8, 7, 3]
-def insertion(numbers: li):
+def insertion(numbers):
     len_numbers = len(numbers)
     
     for i in range(1, len_numbers):
