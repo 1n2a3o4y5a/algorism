@@ -7,7 +7,7 @@ li.sort()
 def binary_search(nums, value):
     left, right = 0, len(nums) - 1
 
-    while right > left:
+    while right >= left:
         mid = (right + left) // 2
         
         if nums[mid] == value:
