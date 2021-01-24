@@ -2,7 +2,7 @@
 
 li_quick = [2, 5, 1, 8, 7, 3]
 
-def partition(numbers,  low, high):
+def partition(numbers, low, high):
     i = low -1
     pivot = numbers[high]
     for j in range(low, high):
