@@ -18,3 +18,10 @@ class LinkedList:
         while last_node.next:
             last_node = last_node.next
         last_node.next = new_node
+
+
+li = LinkedList()
+li.appned(1)
+li.appned(2)
+
+print(li.head.next.data)
