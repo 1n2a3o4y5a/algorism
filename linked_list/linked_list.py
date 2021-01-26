@@ -18,3 +18,8 @@ class LinkedList:
         while last_node.next:
             last_node = last_node.next
         last_node.next = new_node
+
+    def insert(self, data):
+        new_node = None(data)
+        new_node.next = self.head
+        self.head = new_node
