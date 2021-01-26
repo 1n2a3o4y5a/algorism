@@ -20,6 +20,6 @@ class LinkedList:
         last_node.next = new_node
 
     def insert(self, data):
-        new_node = None(data)
+        new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
