@@ -49,6 +49,22 @@ class LinkedList:
         current_node = None
 
 
+    def reverse_iterate(self):
+        porevious_node = None
+        current_node = self.head
+
+        while current_node:
+            next_node = current_node.next
+            current_node.next = next_node
+            porevious_node = current_node
+            current_node = next_node
+        
+        self.head = porevious_node
+
+
+
+
+
 
 li = LinkedList()
 li.appned(1)
@@ -60,3 +76,5 @@ li.print()
 print(1111111111111111)
 li.remove(2)
 li.print()
+
+li.reverse_iterate()
