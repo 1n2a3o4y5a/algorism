@@ -61,6 +61,19 @@ class LinkedList:
         
         self.head = porevious_node
 
+    def reverse_recursive(self):
+        def inner_recursive(current_node, previous_node):
+            if not current_node:
+                return previous_node
+            
+            next_node = current_node.next
+            current_node.next = next_node
+            previous_node = current_node
+            current_node = next_node
+            return inner_recursive(current_node, previous_node)
+        
+        self.head = inner_recursive(self.head, None)
+
 
 
 
