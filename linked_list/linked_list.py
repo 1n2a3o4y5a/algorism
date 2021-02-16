@@ -75,23 +75,22 @@ class LinkedList:
         self.head = inner_recursive(self.head, None)
     
     def reverse_even(self):
-
         def inner_even(head, previous_node):
             if head is None:
                 return None
             current_node = head
-            while current_node and current_node % 2 == 0:
+            while current_node and current_node.data % 2 == 0:
                 next_node = current_node.next
-                current_node.next = next_node
+                current_node.next = previous_node
                 previous_node = current_node
                 current_node = next_node
 
             if current_node != head:
                 head.next = current_node
                 inner_even(current_node, None)
-                return current_node
+                return previous_node
             else:
-                head.next = inner_even(head.next, head):
+                head.next = inner_even(head.next, head)
                 return head
             
         self.head = inner_even(self.head, None)
@@ -106,9 +105,11 @@ li.appned(1)
 li.appned(2)
 li.insert(0)
 li.appned(3)
+li.appned(4)
+li.appned(6)
 
 li.print()
 print(1111111111111111)
-li.print()
 
-li.reverse_iterate()
+li.reverse_even()
+li.print()
