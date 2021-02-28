@@ -82,6 +82,22 @@ class DoubleLinkedList:
         
         if previous_node:
             self.head = previous_node.previous
+    
+    def reverse_recursive(self):
+        def inner_recursive(current_node):
+            if not current_node:
+                return None
+
+            previous_node = current_node.previous
+            current_node.previous = current_node.next
+            current_node.next = previous_node
+
+            if current_node.previous is None:
+                return current_node
+        
+            return inner_recursive(current_node.previous)
+        
+        self.head = inner_recursive(self.head)
 
 li = DoubleLinkedList()
 li.appned(1)
