@@ -68,7 +68,20 @@ class DoubleLinkedList:
             next_node.previous = previous_node
             current_node = None
             return
+    
+    def reverse_iterate(self):
+        previous_node = None
+        current_node = self.head
+
+        while current_node:
+            previous_node = current_node.previous
+            current_node.previous = current_node.next
+            current_node.next = previous_node
+
+            current_node = current_node.previous
         
+        if previous_node:
+            self.head = previous_node.previous
 
 li = DoubleLinkedList()
 li.appned(1)
