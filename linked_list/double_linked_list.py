@@ -98,15 +98,26 @@ class DoubleLinkedList:
             return inner_recursive(current_node.previous)
         
         self.head = inner_recursive(self.head)
+    
+    def sort(self):
+        if self.head is None:
+            return
+        current_node = self.head
+        while current_node.next:
+            next_node = current_node.next
+            while next_node:
+                if current_node.data > next_node.data:
+                    current_node.data, next_node.data = next_node.data, current_node.data
+                next_node = next_node.next
+            
+            current_node = current_node.next
 
 li = DoubleLinkedList()
 li.appned(1)
-li.appned(2)
-li.appned(3)
-li.insert(0)
-li.appned(4)
 li.appned(5)
+li.appned(2)
+li.appned(9)
 li.print()
 print(11111111111111)
-li.remove(2)
+li.sort()
 li.print()
