@@ -25,10 +25,16 @@ class HashTable(object):
                 return d[1]
         return None
 
+    def __setitem__(self, key, value):
+        self.add(key, value)
+    
+    def __getitem__(self, key):
+        return self.get(key)
+
 
 hash_table = HashTable()
-hash_table.add('pc', 'mac')
-hash_table.add('sns', 'youtube')
-hash_table.add('sns', 'mixi')
+hash_table['pc'] = 'mac'
+hash_table['sns'] = 'youtube'
+hash_table['sns'] = 'mixi'
 print(hash_table.table)
 print(hash_table.get('i'))
