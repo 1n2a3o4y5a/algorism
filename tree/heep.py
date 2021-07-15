@@ -1,4 +1,5 @@
 import sys
+from typing import Optional
 
 class MiniHeep(object):
 
@@ -28,3 +29,37 @@ class MiniHeep(object):
         self.heep.append(value)
         self.current_size += 1
         self.heepfy_up(self.current_size)
+
+    def min_child_index(self, index: int) -> int:
+        if self.left_child_index(index) > self.current_size:
+            return self.left_child_index(index)
+
+        if (self.heep[self.left_child_index(index)] <
+            self.heep[self.right_child_index(index)]):
+            return self.left_child_index(index)
+        else:
+            return self.right_child_index(index)
+
+    def heepfy_down(self, index: int) -> None:
+        while self.left_child_index(index) <= self.current_size:
+            min_child_index = self.min_child_index(index)
+            if self.heep[index] > self.heep[min_child_index]:
+                self.swap(index, min_child_index)
+            index = min_child_index
+
+
+    def pop(self) -> Optional[int]:
+        if len(self.heep) == 1:
+            return
+        
+        root = self.heep[1]
+        data = self.heep.pop()
+
+        if len(self.heep) == 1:
+            return root
+
+        self.heep[1] = data
+        self.current_size -= 1
+        self.heepfy_down(1)
+
+        return root
